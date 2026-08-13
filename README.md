@@ -37,34 +37,13 @@ The portfolio focuses on a single, prestigious medical specialty — **Preventat
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🛠️ Tech Stack
 
 - **Frontend Framework**: React 19 (JSX / Plain JavaScript)
 - **Build Tool**: Vite 8.2
 - **Styling**: Vanilla CSS + Tailwind CSS v4
 - **Iconography**: Lucide React
 - **Smooth Scroll Engine**: Lenis Smooth Scroll
-
----
-
-## ⚡ Quick Start Guide
-
-Follow these steps to run the project locally on your machine:
-
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-2. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-
-3. **Build for production**:
-   ```bash
-   npm run build
-   ```
 
 ---
 
