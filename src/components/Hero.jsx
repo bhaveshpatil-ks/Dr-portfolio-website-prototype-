@@ -9,8 +9,8 @@ export default function Hero({ darkMode, onNavigate }) {
       }`} />
 
       <div className="max-w-4xl mx-auto space-y-8 relative z-10 flex flex-col items-center">
-        {/* 1. Live Status Badge */}
-        <div className={`scroll-reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold shadow-xs border ${
+        {/* 1. Live Status Badge (Static - No scroll reveal animation) */}
+        <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold shadow-xs border ${
           darkMode ? 'bg-zinc-900/90 border-zinc-800 text-zinc-300' : 'bg-white/90 border-gray-200 text-zinc-700'
         }`}>
           <span className="flex h-2.5 w-2.5 relative">
@@ -22,16 +22,16 @@ export default function Hero({ darkMode, onNavigate }) {
           <span>Available For Cardiology Consultations</span>
         </div>
 
-        {/* 2. Giant Typography Title */}
-        <h1 className={`scroll-reveal delay-1 text-6xl sm:text-7xl md:text-8xl font-black tracking-tight leading-none ${
+        {/* 2. Giant Typography Title (Static - No scroll reveal animation) */}
+        <h1 className={`text-6xl sm:text-7xl md:text-8xl font-black tracking-tight leading-none ${
           darkMode ? 'text-white' : 'text-slate-950'
         }`}>
           Dr. Leelavati <span className={`font-semibold ${darkMode ? 'opacity-40 text-zinc-500' : 'text-slate-400'}`}>Salunkhe</span>
           <span className="text-2xl sm:text-3xl font-bold text-teal-500 ml-2 align-super">M.D.</span>
         </h1>
 
-        {/* 3. Floating About Card */}
-        <div className={`scroll-reveal delay-2 max-w-2xl rounded-3xl p-6 sm:p-8 text-center shadow-2xl border relative transition-all duration-300 backdrop-blur-xl ${
+        {/* 3. Floating About Card (Static - No scroll reveal animation) */}
+        <div className={`max-w-2xl rounded-3xl p-6 sm:p-8 text-center shadow-2xl border relative transition-all duration-300 backdrop-blur-xl ${
           darkMode
             ? 'bg-zinc-900/80 border-zinc-800/80 text-zinc-300'
             : 'bg-white border-slate-200 text-slate-950 shadow-xl shadow-slate-200/50'
@@ -52,8 +52,8 @@ export default function Hero({ darkMode, onNavigate }) {
           </p>
         </div>
 
-        {/* 4. Site Update Pill */}
-        <div className={`scroll-reveal delay-3 inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-semibold shadow-xs border ${
+        {/* 4. Site Update Pill (Static - No scroll reveal animation) */}
+        <div className={`inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-semibold shadow-xs border ${
           darkMode ? 'bg-zinc-900/90 border-zinc-800 text-zinc-300' : 'bg-white/90 border-gray-200 text-zinc-700'
         }`}>
           <span className={`font-extrabold uppercase tracking-wider text-[10px] px-2 py-0.5 rounded-md ${
@@ -66,8 +66,8 @@ export default function Hero({ darkMode, onNavigate }) {
           </span>
         </div>
 
-        {/* 5. Personal Portfolio Action Button Bar */}
-        <div className="scroll-reveal delay-4 flex flex-wrap items-center justify-center gap-3 pt-2">
+        {/* 5. Personal Portfolio Action Button Bar (Static - Instant Load) */}
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           {/* Button 1: View Specialties */}
           <button
             onClick={() => onNavigate('specialties')}

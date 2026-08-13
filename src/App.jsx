@@ -17,7 +17,8 @@ import HospitalFooter from './components/HospitalFooter.jsx';
 import { ArrowLeft } from 'lucide-react';
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  // Default Theme: DAY / LIGHT MODE
+  const [darkMode, setDarkMode] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedService, setSelectedService] = useState('');
 
@@ -41,9 +42,10 @@ export default function App() {
     };
   }, []);
 
-  // IntersectionObserver for Scroll Swipe Up Animation Effects
+  // IntersectionObserver for Scroll Swipe Up Animation Effects (Robust Glitch-Free Trigger)
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const revealAll = () => {
+      const elements = document.querySelectorAll('.scroll-reveal');
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -52,15 +54,25 @@ export default function App() {
             }
           });
         },
-        { threshold: 0.08 }
+        { threshold: 0.05, rootMargin: '50px 0px 50px 0px' }
       );
 
-      const elements = document.querySelectorAll('.scroll-reveal');
-      elements.forEach((el) => observer.observe(el));
-    }, 100);
+      elements.forEach((el) => {
+        // Immediately reveal top hero elements
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('is-visible');
+        } else {
+          observer.observe(el);
+        }
+      });
+    };
+
+    revealAll();
+    const timer = setTimeout(revealAll, 100);
 
     return () => clearTimeout(timer);
-  }, [currentPage]);
+  }, [currentPage, darkMode]);
 
   const navigateTo = (pageName, service = '') => {
     if (service) setSelectedService(service);
@@ -70,7 +82,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen font-sans antialiased transition-colors duration-300 ${
-      darkMode ? 'bg-[#000000] text-zinc-100 selection:bg-teal-500 selection:text-black' : 'bg-[#f4f4f5] text-zinc-900 selection:bg-zinc-950 selection:text-white'
+      darkMode ? 'bg-[#000000] text-zinc-100 selection:bg-teal-500 selection:text-black' : 'bg-[#f8fafc] text-slate-900 selection:bg-slate-950 selection:text-white'
     }`}>
       {/* Persistent Floating Top Navbar */}
       <Navbar
@@ -90,7 +102,7 @@ export default function App() {
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer border ${
                 darkMode
                   ? 'bg-zinc-900 hover:bg-zinc-800 text-white border-zinc-800'
-                  : 'bg-white hover:bg-slate-100 text-slate-900 border-slate-200'
+                  : 'bg-white hover:bg-slate-100 text-slate-900 border-slate-200 shadow-xs'
               }`}
             >
               <ArrowLeft size={14} />
@@ -98,7 +110,7 @@ export default function App() {
             </button>
 
             <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
-              darkMode ? 'bg-zinc-900 text-teal-400 border-zinc-800' : 'bg-slate-200 text-teal-700 border-slate-300'
+              darkMode ? 'bg-zinc-900 text-teal-400 border-zinc-800' : 'bg-slate-200 text-teal-800 border-slate-300'
             }`}>
               Page View: {currentPage.toUpperCase()}
             </span>
