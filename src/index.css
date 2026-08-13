@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: auto !important; /* Lenis handles smooth scrolling */
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Lenis Recommended CSS Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Scroll Swipe Up Reveal Animation Effects */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(45px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered Delays for Grid Cards */
+.delay-1 { transition-delay: 100ms; }
+.delay-2 { transition-delay: 200ms; }
+.delay-3 { transition-delay: 300ms; }
+.delay-4 { transition-delay: 400ms; }
